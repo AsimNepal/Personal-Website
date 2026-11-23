@@ -1,1303 +1,405 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description"
-    content="Asim Nepal — Mathematics and Actuarial & Data Science undergraduate at SUNY Brockport. Research, projects, and experience.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Asim Nepal — Mathematics and Actuarial & Data Science student at SUNY Brockport. Research, projects, and academic experience.">
   <title>Asim Nepal | Mathematics & Research</title>
-
-  <style>
-    :root {
-      --navy: #172b50;
-      --navy-dark: #101f3a;
-      --coral: #d77c69;
-      --peach: #fff0e6;
-      --cream: #fffaf6;
-      --white: #ffffff;
-      --text: #364052;
-      --muted: #687386;
-      --border: #e9e2de;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3 {
-      color: var(--navy);
-      line-height: 1.25;
-    }
-
-    h1, h2 {
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--coral);
-      z-index: 200;
-    }
-
-    /* NAVIGATION */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-wrap {
-      max-width: 1180px;
-      margin: auto;
-      padding: 16px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--navy);
-      white-space: nowrap;
-    }
-
-    .monogram {
-      display: grid;
-      place-items: center;
-      width: 40px;
-      height: 40px;
-      background: var(--navy);
-      color: white;
-      border-radius: 50%;
-      font-size: 14px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-    }
-
-    nav a {
-      font-size: 13px;
-      font-weight: 600;
-      transition: color .25s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--coral);
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 25px;
-      background: var(--coral);
-      color: white !important;
-      border-radius: 28px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      transition: transform .3s, background .3s;
-    }
-
-    .button:hover {
-      transform: translateY(-3px);
-      background: #bd6656;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: none;
-      background: none;
-      font-size: 26px;
-      color: var(--navy);
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      background: linear-gradient(115deg, #fff5ed, #ffe8dc);
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      max-width: 1180px;
-      margin: auto;
-      padding: 95px 25px;
-      min-height: 610px;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 75px;
-    }
-
-    .eyebrow,
-    .section-kicker {
-      color: var(--coral);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(43px, 5vw, 67px);
-      margin: 17px 0 24px;
-    }
-
-    .hero-intro {
-      max-width: 580px;
-      font-size: 18px;
-      line-height: 1.9;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .text-link {
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .text-link:hover {
-      color: var(--coral);
-    }
-
-    .portrait {
-      height: 435px;
-      width: 100%;
-      max-width: 390px;
-      margin: auto;
-      border-radius: 48% 48% 12% 12%;
-      overflow: hidden;
-      box-shadow: 0 25px 55px rgba(23,43,80,.13);
-      background: #d9d9d9;
-    }
-
-    .portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 25%;
-    }
-
-    /* SECTIONS */
-
-    .section {
-      padding: 95px 25px;
-      background: white;
-    }
-
-    .section.tinted {
-      background: var(--peach);
-    }
-
-    .section-inner {
-      max-width: 1120px;
-      margin: auto;
-    }
-
-    .section-heading {
-      margin-bottom: 40px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(34px, 4vw, 47px);
-      margin: 10px 0;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 65px;
-    }
-
-    .education-title {
-      font-size: 25px;
-      margin-bottom: 5px;
-    }
-
-    .location {
-      color: var(--muted);
-      font-size: 14px;
-      margin: 0 0 22px;
-    }
-
-    .course-heading {
-      margin-top: 32px;
-    }
-
-    .fact-panel {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 30px;
-    }
-
-    .fact-panel div {
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .fact-panel div:last-child {
-      border-bottom: none;
-    }
-
-    .fact-panel small {
-      display: block;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-
-    .fact-panel strong {
-      color: var(--navy);
-    }
-
-    /* RESEARCH */
-
-    .feature {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 40px;
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      box-shadow: 0 12px 35px rgba(23,43,80,.05);
-    }
-
-    .feature h3 {
-      font-size: 25px;
-    }
-
-    .tag {
-      color: var(--coral);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .research-points {
-      padding-left: 20px;
-    }
-
-    .research-points li {
-      margin-bottom: 13px;
-    }
-
-    .math-visual {
-      background: var(--navy);
-      border-radius: 16px;
-      color: white;
-      padding: 28px 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 25px;
-      min-width: 0;
-    }
-
-    .math-visual math {
-      font-size: clamp(18px, 2vw, 27px);
-      color: white;
-      max-width: 100%;
-    }
-
-    .visual-caption {
-      text-align: center;
-      color: #cbd5e1;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    /* EXPERIENCE */
-
-    .timeline article {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 30px;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .date {
-      color: var(--coral);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .timeline h3 {
-      margin: 0;
-      font-size: 21px;
-    }
-
-    .org {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    /* PROJECTS */
-
-    .project-grid,
-    .activity-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .project-card,
-    .activity {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      overflow: hidden;
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .project-card:hover,
-    .activity:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 35px rgba(23,43,80,.1);
-    }
-
-    .project-art {
-      height: 190px;
-      display: grid;
-      place-items: center;
-      background: #e9edf4;
-    }
-
-    .project-art svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    .project-body {
-      padding: 28px;
-    }
-
-    .project-body h3 {
-      font-size: 21px;
-    }
-
-    .project-body a,
-    .all-work a {
-      color: var(--coral);
-      font-weight: 700;
-    }
-
-    .all-work {
-      margin-top: 30px;
-    }
-
-    .activity-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .activity {
-      padding: 27px;
-      background: var(--cream);
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: var(--navy);
-      color: white;
-      padding: 80px 25px;
-    }
-
-    .contact-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .contact-section h2 {
-      color: white;
-      font-size: 46px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .contact-links a:hover {
-      color: #f4aa95;
-    }
-
-    footer {
-      background: var(--navy-dark);
-      color: #cbd5e1;
-      display: flex;
-      justify-content: space-between;
-      padding: 25px max(25px, calc((100% - 1120px)/2));
-      font-size: 13px;
-      gap: 20px;
-    }
-
-    /* OPENING ANIMATIONS */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes photoEntrance {
-      from {
-        opacity: 0;
-        transform: translateX(35px) scale(.97);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-      }
-    }
-
-    @keyframes navEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(-15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .site-header {
-      animation: navEntrance .7s ease-out both;
-    }
-
-    .hero .eyebrow {
-      animation: fadeUp .7s ease-out .15s both;
-    }
-
-    .hero h1 {
-      animation: fadeUp .85s ease-out .3s both;
-    }
-
-    .hero-intro {
-      animation: fadeUp .85s ease-out .5s both;
-    }
-
-    .hero-actions {
-      animation: fadeUp .85s ease-out .7s both;
-    }
-
-    .hero .portrait {
-      animation: photoEntrance 1.1s
-        cubic-bezier(.22,1,.36,1) .35s both;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 25px;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: 0 12px 25px rgba(0,0,0,.08);
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .hero-inner,
-      .two-col,
-      .feature {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-inner {
-        padding: 70px 25px;
-        gap: 45px;
-      }
-
-      .portrait {
-        max-width: 350px;
-      }
-
-      .activity-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .section {
-        padding: 65px 20px;
-      }
-
-      .hero-inner {
-        padding: 55px 20px;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline article {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .feature {
-        padding: 22px;
-      }
-
-      .contact-inner,
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="reading-progress"></div>
+<div class="reading-progress" aria-hidden="true"></div>
 
-  <!-- NAVIGATION -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="#home">
+      <span class="monogram">AN</span>
+      <span>Asim Nepal</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav id="navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#biography">Education</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#activities">Academic Activities</a>
+      <a class="button nav-contact" href="#contact">CONTACT ME</a>
+    </nav>
+  </div>
+</header>
 
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="#home">
-        <span class="monogram">AN</span>
-        <span>Asim Nepal</span>
-      </a>
+<main>
 
-      <button class="menu-toggle"
-        aria-label="Toggle menu"
-        aria-expanded="false">☰</button>
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="hero-accent" aria-hidden="true"></div>
+        <p class="eyebrow">MATHEMATICS · DATA SCIENCE · RESEARCH</p>
+        <h1>Hi, I’m Asim Nepal</h1>
+        <p class="hero-intro">
+          I’m an undergraduate at SUNY Brockport, double majoring in
+          Mathematics and Actuarial &amp; Data Science, with a minor
+          in Physics. I love STEM, especially mathematics!
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#biography">VIEW EDUCATION</a>
+          <a class="text-link" href="#research">
+            Explore my research <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
 
-      <nav id="navigation">
-        <a class="active" href="#home">Home</a>
-        <a href="#biography">Education</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#activities">Academic Activities</a>
-        <a class="button" href="#contact">CONTACT ME</a>
-      </nav>
+      <div class="portrait">
+        <img src="asim-nepal-portrait.png"
+             alt="Asim Nepal wearing an off-white blazer and black shirt against a gray studio background">
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
+  <!-- EDUCATION -->
+  <section class="section" id="biography">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="section-kicker">EDUCATION</span>
+        <h2>Education</h2>
+      </div>
 
-    <!-- HOME -->
+      <div class="two-col">
+        <div>
+          <h3 class="education-title">SUNY Brockport · Honors College</h3>
+          <p class="university-location">Brockport, NY, USA</p>
 
-    <section class="hero" id="home">
-      <div class="hero-inner">
-
-        <div class="hero-copy">
-          <p class="eyebrow">
-            MATHEMATICS · DATA SCIENCE · RESEARCH
+          <p>
+            <strong>B.S. in Mathematics and Actuarial &amp; Data Science (Double Major)</strong>
+            <br>
+            Minor in Physics · August 2025 – May 2029
           </p>
 
-          <h1>Hi, I'm Asim Nepal</h1>
-
-          <p class="hero-intro">
-            I'm an undergraduate at SUNY Brockport,
-            double majoring in Mathematics and
-            Actuarial &amp; Data Science, with a minor
-            in Physics. I love STEM, especially mathematics!
-          </p>
-
-          <div class="hero-actions">
-            <a class="button" href="#biography">
-              VIEW EDUCATION
-            </a>
-
-            <a class="text-link" href="#research">
-              Explore my research →
-            </a>
-          </div>
+          <h3 class="course-heading">Relevant Coursework</h3>
+          <p><strong>Completed:</strong> Calculus I–II, Discrete Mathematics I, Physics II.</p>
+          <p><strong>Fall 2026 (In Progress):</strong> Calculus III, Linear Algebra.</p>
+          <p><strong>Planned Spring 2027:</strong> Real Analysis, Numerical Analysis, Ordinary Differential Equations, Probability &amp; Statistics I, Complex Analysis.</p>
         </div>
 
-        <div class="portrait">
-          <img
-            src="asim-nepal-portrait.png"
-            alt="Asim Nepal in an off-white blazer"
-          >
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-
-    <section class="section" id="biography">
-      <div class="section-inner">
-
-        <div class="section-heading">
-          <span class="section-kicker">EDUCATION</span>
-          <h2>Education</h2>
-        </div>
-
-        <div class="two-col">
-
+        <aside class="fact-panel">
           <div>
-            <h3 class="education-title">
-              SUNY Brockport · Honors College
-            </h3>
-
-            <p class="location">
-              Brockport, NY, USA
-            </p>
-
-            <p>
-              <strong>
-                B.S. in Mathematics and Actuarial
-                &amp; Data Science (Double Major)
-              </strong>
-              <br>
-              Minor in Physics · August 2025 – May 2029
-            </p>
-
-            <h3 class="course-heading">
-              Relevant Coursework
-            </h3>
-
-            <p>
-              <strong>Completed:</strong>
-              Calculus I–II, Discrete Mathematics I,
-              Physics II.
-            </p>
-
-            <p>
-              <strong>Courses Taking – Fall 2026:</strong>
-Calculus III, Linear Algebra.
-            </p>
-
-            <p>
-              <strong>Planned Spring 2027:</strong>
-              Real Analysis, Numerical Analysis,
-              Ordinary Differential Equations,
-              Probability &amp; Statistics I.
-            </p>
+            <small>INSTITUTION</small>
+            <strong>SUNY Brockport · Honors College</strong>
           </div>
-
-          <aside class="fact-panel">
-
-            <div>
-              <small>INSTITUTION</small>
-              <strong>
-                SUNY Brockport · Honors College
-              </strong>
-            </div>
-
-            <div>
-              <small>LOCATION</small>
-              <strong>Brockport, NY, USA</strong>
-            </div>
-
-            <div>
-              <small>MAJORS</small>
-              <strong>
-                Mathematics · Actuarial &amp; Data Science
-              </strong>
-            </div>
-
-            <div>
-              <small>MINOR</small>
-              <strong>Physics</strong>
-            </div>
-
-            <div>
-              <small>GPA</small>
-              <strong>3.91 / 4.00</strong>
-            </div>
-
-            <div>
-              <small>EXPECTED GRADUATION</small>
-              <strong>May 2029</strong>
-            </div>
-
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-
-    <section class="section tinted" id="research">
-      <div class="section-inner">
-
-        <div class="section-heading">
-          <span class="section-kicker">ACADEMIC WORK</span>
-          <h2>Research</h2>
-        </div>
-
-        <article class="feature">
-
           <div>
-            <span class="tag">
-              UNDERGRADUATE RESEARCH · MAY–AUGUST 2026
-            </span>
-
-            <h3>
-              Gaussian-Type Integrals:
-              Theory, Computation, and Applications
-            </h3>
-
-            <p>
-              <strong>Research Supervisor:</strong>
-              Professor Stephanie Wisnowski
-            </p>
-
-            <ul class="research-points">
-              <li>
-                Researched generalized Gaussian integrals,
-                investigating their dependence on the exponent
-                and connections to the Gamma function.
-              </li>
-
-              <li>
-                Derived analytical expressions and examined
-                special cases, asymptotic behavior,
-                and convergence properties.
-              </li>
-
-              <li>
-                Identified a nontrivial minimum near
-                <em>n</em> = 2.16623, showing that the
-                classical Gaussian case (<em>n</em> = 2)
-                lies close to the minimizing exponent.
-              </li>
-
-              <li>
-                Evaluated numerical integration methods,
-                including the Trapezoidal and Simpson's Rules,
-                comparing numerical approximations
-                with analytical results.
-              </li>
-
-              <li>
-                <strong>
-                  Selected to present research at the
-                  January 2027 Joint Mathematics Meetings
-                  (JMM) through the AMS–PME
-                  Undergraduate Poster Session.
-                </strong>
-              </li>
-            </ul>
+            <small>MAJORS</small>
+            <strong>Mathematics · Actuarial &amp; Data Science</strong>
           </div>
+          <div>
+            <small>MINOR</small>
+            <strong>Physics</strong>
+          </div>
+          <div>
+            <small>GPA</small>
+            <strong>3.91 / 4.00</strong>
+          </div>
+          <div>
+            <small>EXPECTED GRADUATION</small>
+            <strong>May 2029</strong>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
 
-          <div class="math-visual">
+  <!-- RESEARCH -->
+  <section class="section tinted" id="research">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="section-kicker">ACADEMIC WORK</span>
+        <h2>Research</h2>
+      </div>
 
-            <math display="block">
-              <mrow>
-                <mi>I</mi><mo>(</mo><mi>n</mi><mo>)</mo>
-                <mo>=</mo>
-                <msubsup>
-                  <mo>∫</mo><mn>0</mn><mi>∞</mi>
-                </msubsup>
-                <msup>
-                  <mi>e</mi>
-                  <mrow>
-                    <mo>−</mo>
-                    <msup><mi>x</mi><mi>n</mi></msup>
-                  </mrow>
-                </msup>
-                <mi>d</mi><mi>x</mi>
-              </mrow>
-            </math>
+      <article class="feature">
+        <div>
+          <span class="tag">UNDERGRADUATE RESEARCH · MAY–AUGUST 2026</span>
+          <h3>Gaussian-Type Integrals: Theory, Computation, and Applications</h3>
+          <p><strong>Research Supervisor:</strong> Professor Stephanie Wisnowski</p>
 
-            <math display="block">
-              <mrow>
-                <mo>=</mo>
-                <mi>Γ</mi><mo>(</mo><mn>1</mn>
-                <mo>+</mo>
-                <mfrac><mn>1</mn><mi>n</mi></mfrac>
-                <mo>)</mo>
-              </mrow>
-            </math>
+          <ul class="research-points">
+            <li>
+              Researched generalized Gaussian integrals, investigating
+              their dependence on the exponent and connections to the Gamma function.
+            </li>
+            <li>
+              Derived analytical expressions and examined special cases,
+              asymptotic behavior, and convergence properties.
+            </li>
+            <li>
+              Identified a nontrivial minimum near <em>n</em> = 2.16623,
+              showing that the classical Gaussian case (<em>n</em> = 2)
+              lies close to the minimizing exponent.
+            </li>
+            <li>
+              Evaluated numerical integration methods, including the
+              Trapezoidal and Simpson’s Rules, comparing numerical
+              approximations with analytical results.
+            </li>
+            <li>
+              <strong>
+                Selected to present research at the January 2027
+                Joint Mathematics Meetings (JMM) through the
+                AMS–PME Undergraduate Poster Session.
+              </strong>
+            </li>
+          </ul>
+        </div>
 
-            <div class="visual-caption">
-              ANALYSIS · NUMERICAL METHODS · SPECIAL FUNCTIONS
-            </div>
+        <div class="math-visual" aria-label="Mathematical integral expression">
+          <math display="block" aria-label="I of n equals the integral from zero to infinity of e to the negative x to the n, d x">
+            <mrow>
+              <mi>I</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo>
+              <msubsup><mo>∫</mo><mn>0</mn><mi>∞</mi></msubsup>
+              <msup>
+                <mi>e</mi>
+                <mrow><mo>−</mo><msup><mi>x</mi><mi>n</mi></msup></mrow>
+              </msup>
+              <mi>d</mi><mi>x</mi>
+            </mrow>
+          </math>
 
+          <math display="block" aria-label="equals Gamma of one plus one over n">
+            <mrow>
+              <mo>=</mo><mi>Γ</mi><mo>(</mo><mn>1</mn>
+              <mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo>)</mo>
+            </mrow>
+          </math>
+
+          <div class="visual-caption">
+            ANALYSIS · NUMERICAL METHODS · SPECIAL FUNCTIONS
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="section-kicker">PROFESSIONAL BACKGROUND</span>
+        <h2>Experience</h2>
+      </div>
+
+      <div class="timeline">
+        <article>
+          <div class="date">JAN 2026 — PRESENT</div>
+          <div>
+            <h3>Peer Math Tutor</h3>
+            <p class="org">Academic Success Center · SUNY Brockport</p>
+            <p>
+              Tutor students in Calculus I–III, Linear Algebra,
+              Discrete Mathematics, and introductory mathematics courses.
+              Led Calculus I final-exam review sessions attended by
+              more than 45 students.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <div class="date">JAN — JUL 2025</div>
+          <div>
+            <h3>Data Analyst Intern</h3>
+            <p class="org">Intellisoft Nepal · Kathmandu, Nepal</p>
+            <p>
+              Analyzed financial transactions with Python, performed data
+              cleaning and exploratory analysis, checked inconsistent
+              records, applied statistical tests, and built Tableau dashboards.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <div class="date">MAR 2024 — OCT 2025</div>
+          <div>
+            <h3>Remote Math Tutor</h3>
+            <p class="org">Home Tuition Nepal · Kathmandu, Nepal</p>
+            <p>
+              Provided one-on-one online mathematics tutoring for 21 students
+              in grades 8–12, covering algebra, geometry, trigonometry,
+              and calculus.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <div class="date">APR 2025 — JUL 2025</div>
+          <div>
+            <h3>Lab Assistant · Python for Medical Students</h3>
+            <p class="org">Dataksha Analytics · Kathmandu, Nepal</p>
+            <p>
+              Supported 32 medical students with Python installation,
+              coding exercises, debugging, and technical questions
+              during lab sessions.
+            </p>
+          </div>
+        </article>
+
+        <article>
+          <div class="date">FEB 2026 — PRESENT</div>
+          <div>
+            <h3>Student Union Manager</h3>
+            <p class="org">Seymour Union · SUNY Brockport</p>
+            <p>
+              Oversee student union operations, coordinate events and
+              logistics, and work with campus departments to support
+              student activities.
+            </p>
           </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXPERIENCE -->
-
-    <section class="section" id="experience">
-      <div class="section-inner">
-
-        <div class="section-heading">
-          <span class="section-kicker">
-            PROFESSIONAL BACKGROUND
-          </span>
-          <h2>Experience</h2>
-        </div>
-
-        <div class="timeline">
-
-          <article>
-            <div class="date">
-              JAN 2026 — PRESENT
-            </div>
-
-            <div>
-              <h3>Peer Math Tutor</h3>
-              <p class="org">
-                Academic Success Center · SUNY Brockport
-              </p>
-
-              <p>
-                Tutor students in Calculus I–III,
-                Linear Algebra, Discrete Mathematics,
-                and introductory mathematics courses.
-                Led Calculus I final-exam review sessions
-                attended by more than 45 students.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <div class="date">
-              JAN — JUL 2025
-            </div>
-
-            <div>
-              <h3>Data Analyst Intern</h3>
-              <p class="org">
-                Intellisoft Nepal · Kathmandu, Nepal
-              </p>
-
-              <p>
-                Analyzed financial transactions with Python,
-                performed data cleaning and exploratory analysis,
-                checked inconsistent records, applied statistical
-                tests, and built Tableau dashboards.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <div class="date">
-              MAR 2024 — OCT 2025
-            </div>
-
-            <div>
-              <h3>Remote Math Tutor</h3>
-              <p class="org">
-                Home Tuition Nepal · Kathmandu, Nepal
-              </p>
-
-              <p>
-                Provided one-on-one online mathematics tutoring
-                for 21 students in grades 8–12, covering
-                algebra, geometry, trigonometry, and calculus.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <div class="date">
-              APR 2025 — JUL 2025
-            </div>
-
-            <div>
-              <h3>
-                Lab Assistant · Python for Medical Students
-              </h3>
-
-              <p class="org">
-                Dataksha Analytics · Kathmandu, Nepal
-              </p>
-
-              <p>
-                Supported 32 medical students with Python
-                installation, coding exercises, debugging,
-                and technical questions during lab sessions.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <div class="date">
-              FEB 2026 — PRESENT
-            </div>
-
-            <div>
-              <h3>Student Union Manager</h3>
-              <p class="org">
-                Seymour Union · SUNY Brockport
-              </p>
-
-              <p>
-                Oversee student union operations,
-                coordinate events and logistics,
-                and work with campus departments
-                to support student activities.
-              </p>
-            </div>
-          </article>
-
-        </div>
+  <!-- PROJECTS -->
+  <section class="section tinted" id="projects">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="section-kicker">SELECTED WORK</span>
+        <h2>Mathematics &amp; Data Projects</h2>
       </div>
-    </section>
 
-    <!-- PROJECTS -->
-
-    <section class="section tinted" id="projects">
-      <div class="section-inner">
-
-        <div class="section-heading">
-          <span class="section-kicker">
-            SELECTED WORK
-          </span>
-
-          <h2>Mathematics &amp; Data Projects</h2>
-        </div>
-
-        <div class="project-grid">
-
-          <article class="project-card">
-
-            <div class="project-art">
-              <svg viewBox="0 0 500 210" aria-hidden="true">
-                <path
-                  d="M65 110 L200 40 L315 165 L445 95
-                     M65 110 L315 165 M200 40 L445 95"
-                  fill="none"
-                  stroke="#7694b4"
-                  stroke-width="7"
-                  stroke-linecap="round"
-                />
-
-                <g fill="#172b50">
-                  <circle cx="65" cy="110" r="13"/>
-                  <circle cx="200" cy="40" r="13"/>
-                  <circle cx="315" cy="165" r="13"/>
-                  <circle cx="445" cy="95" r="13"/>
-                </g>
-              </svg>
-            </div>
-
-            <div class="project-body">
-              <span class="tag">
-                GRAPH THEORY · OPTIMIZATION
-              </span>
-
-              <h3>
-                Braess's Paradox:
-                Mathematical Modeling and Traffic
-                Network Optimization
-              </h3>
-
-              <p>
-                Modeled traffic networks using multivariable
-                calculus, linear algebra, and graph theory
-                to study when adding a road can unexpectedly
-                increase congestion.
-              </p>
-
-              <a href="https://asimnepalproject.netlify.app/"
-                 target="_blank" rel="noopener noreferrer">
-                View interactive project ↗
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card">
-
-            <div class="project-art">
-              <svg viewBox="0 0 500 210" aria-hidden="true">
-                <g stroke="#7694b4" stroke-width="3">
-                  <path
-                    d="M90 110L190 42L300 92L410 45
-                       L375 165L250 175L90 110
-                       L300 92L250 175L190 42L375 165"
-                    fill="none"
-                  />
-                </g>
-
-                <g fill="#172b50">
-                  <circle cx="90" cy="110" r="12"/>
-                  <circle cx="190" cy="42" r="12"/>
-                  <circle cx="300" cy="92" r="12"/>
-                  <circle cx="410" cy="45" r="12"/>
-                  <circle cx="375" cy="165" r="12"/>
-                  <circle cx="250" cy="175" r="12"/>
-                </g>
-              </svg>
-            </div>
-
-            <div class="project-body">
-              <span class="tag">
-                MONTE CARLO · NETWORK SCIENCE
-              </span>
-
-              <h3>
-                When Do Networks Break?
-                Exploring Network Resilience
-              </h3>
-
-              <p>
-                Used graph theory and Monte Carlo simulations
-                to examine how different networks respond
-                to random failures and the removal of
-                highly connected nodes.
-              </p>
-
-              <a href="https://github.com/AsimNepal/network-robustness-research"
-                 target="_blank" rel="noopener noreferrer">
-                View project on GitHub ↗
-              </a>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="all-work">
-          See more of my work on
-          <a href="https://github.com/AsimNepal"
-             target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
-        </p>
-
-      </div>
-    </section>
-
-    <!-- ACADEMIC ACTIVITIES -->
-
-    <section class="section" id="activities">
-      <div class="section-inner">
-
-        <div class="section-heading">
-          <span class="section-kicker">
-            BEYOND THE CLASSROOM
-          </span>
-
-          <h2>Academic Activities &amp; Recognition</h2>
-        </div>
-
-        <div class="activity-grid">
-
-          <div class="activity">
-            <h3>2027 Joint Mathematics Meetings</h3>
-            <p>
-              Selected for the January 2027
-              AMS–PME Undergraduate Poster Session
-              to present research on Gaussian-type integrals.
-            </p>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art roads">
+            <svg viewBox="0 0 500 210" aria-hidden="true">
+              <path d="M65 110 L200 40 L315 165 L445 95 M65 110 L315 165 M200 40 L445 95"
+                    fill="none" stroke="#7694b4" stroke-width="7"
+                    stroke-linecap="round"/>
+              <g fill="#13255b">
+                <circle cx="65" cy="110" r="13"/>
+                <circle cx="200" cy="40" r="13"/>
+                <circle cx="315" cy="165" r="13"/>
+                <circle cx="445" cy="95" r="13"/>
+              </g>
+            </svg>
           </div>
-
-          <div class="activity">
-            <h3>
-              National B.Sc. CSIT Entrance Examination
-            </h3>
-
+          <div class="project-body">
+            <span class="tag">GRAPH THEORY · OPTIMIZATION</span>
+            <h3>Braess’s Paradox: Mathematical Modeling and Traffic Network Optimization</h3>
             <p>
-              Ranked 16th among 8,000+ applicants
-              in Nepal's national undergraduate
-              Computer Science entrance examination (2025).
+              Modeled traffic networks using multivariable calculus,
+              linear algebra, and graph theory to study when adding a
+              road can unexpectedly increase congestion.
             </p>
+            <a href="https://asimnepalproject.netlify.app/"
+               target="_blank" rel="noopener noreferrer">
+              View interactive project ↗
+            </a>
           </div>
+        </article>
 
-          <div class="activity">
-            <h3>DataCamp Data Fellow</h3>
+        <article class="project-card">
+          <div class="project-art network">
+            <svg viewBox="0 0 500 210" aria-hidden="true">
+              <g stroke="#7694b4" stroke-width="3">
+                <path d="M90 110L190 42L300 92L410 45L375 165L250 175L90 110L300 92L250 175L190 42L375 165"
+                      fill="none"/>
+              </g>
+              <g fill="#13255b">
+                <circle cx="90" cy="110" r="12"/>
+                <circle cx="190" cy="42" r="12"/>
+                <circle cx="300" cy="92" r="12"/>
+                <circle cx="410" cy="45" r="12"/>
+                <circle cx="375" cy="165" r="12"/>
+                <circle cx="250" cy="175" r="12"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-body">
+            <span class="tag">MONTE CARLO · NETWORK SCIENCE</span>
+            <h3>When Do Networks Break? Exploring Network Resilience</h3>
             <p>
-              Selected for the DataCamp fellowship program.
+              Used graph theory and 108 Monte Carlo simulations to examine
+              how different networks respond to random failures and the
+              removal of highly connected nodes.
             </p>
+            <a href="https://github.com/AsimNepal/network-robustness-research"
+               target="_blank" rel="noopener noreferrer">
+              View project on GitHub ↗
+            </a>
           </div>
+        </article>
+      </div>
 
+      <p class="all-work">
+        See more of my work on
+        <a href="https://github.com/AsimNepal"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ACADEMIC ACTIVITIES -->
+  <section class="section" id="activities">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="section-kicker">BEYOND THE CLASSROOM</span>
+        <h2>Academic Activities &amp; Recognition</h2>
+      </div>
+
+      <div class="activity-grid">
+        <div class="activity">
+          <h3>2027 Joint Mathematics Meetings</h3>
+          <p>
+            Selected for the AMS–PME Undergraduate Poster Session
+            to present research on Gaussian-type integrals.
+          </p>
+        </div>
+
+        <div class="activity">
+          <h3>National B.Sc. CSIT Entrance Examination</h3>
+          <p>
+            Ranked 16th among 8,000+ applicants in Nepal’s national
+            undergraduate Computer Science entrance examination (2025).
+          </p>
+        </div>
+
+        <div class="activity">
+          <h3>DataCamp Data Fellow</h3>
+          <p>Selected for the DataCamp fellowship program.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-
-    <section class="contact-section" id="contact">
-      <div class="section-inner contact-inner">
-
-        <div>
-          <span class="section-kicker">
-            GET IN TOUCH
-          </span>
-
-          <h2>Let's connect.</h2>
-
-          <a class="button"
-             href="mailto:anepa2@brockport.edu">
-            EMAIL ME
-          </a>
-        </div>
-
-        <div class="contact-links">
-
-          <a href="mailto:anepa2@brockport.edu">
-            anepa2@brockport.edu ↗
-          </a>
-
-          <a href="https://github.com/AsimNepal"
-             target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
-
-          <a href="https://www.linkedin.com/in/asim-nepal-94736334a/"
-             target="_blank" rel="noopener noreferrer">
-            LinkedIn ↗
-          </a>
-
-        </div>
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner contact-inner">
+      <div>
+        <span class="section-kicker">GET IN TOUCH</span>
+        <h2>Let’s connect.</h2>
+        <a class="button" href="mailto:anepa2@brockport.edu">
+          EMAIL ME
+        </a>
       </div>
-    </section>
 
-  </main>
+      <div class="contact-links">
+        <a href="mailto:anepa2@brockport.edu">anepa2@brockport.edu ↗</a>
+        <a href="https://github.com/AsimNepal"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/asim-nepal-94736334a/"
+           target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <span>
-      © <span id="year">2026</span> Asim Nepal
-    </span>
+</main>
 
-    <span>
-      Mathematics · Research · Data Science
-    </span>
-  </footer>
+<footer>
+  <span>© <span id="year">2026</span> Asim Nepal</span>
+  <span>Mathematics · Research · Data Science</span>
+</footer>
 
-  <script>
-    // Mobile navigation
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#navigation");
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", isOpen);
-    });
-
-    document.querySelectorAll("#navigation a").forEach(link => {
-      link.addEventListener("click", () => {
-        navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    // Reading progress
-    const progress = document.querySelector(".reading-progress");
-
-    function updateProgress() {
-      const scrollable =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      const percentage = scrollable > 0
-        ? (window.scrollY / scrollable) * 100
-        : 0;
-
-      progress.style.width = percentage + "%";
-    }
-
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
-
-    // Active navigation
-    const sections = document.querySelectorAll("main section[id]");
-    const navLinks = document.querySelectorAll("#navigation a[href^='#']");
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href") === "#" + entry.target.id
-            );
-          });
-        }
-      });
-    }, {
-      rootMargin: "-25% 0px -60% 0px"
-    });
-
-    sections.forEach(section => observer.observe(section));
-
-    // Current year
-    document.querySelector("#year").textContent =
-      new Date().getFullYear();
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
