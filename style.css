@@ -100,3 +100,85 @@ body{color:var(--ink);background:#fffdfb}
 .contact-links a:hover{color:#c86c61}
 .research-points li::marker{color:var(--coral)}
 .hero h1::selection{background:#f5c4ba}
+
+
+/* ===== WEBSITE OPENING ANIMATIONS ===== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes photoEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes navEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation */
+.site-header {
+  animation: navEntrance 0.7s ease-out both;
+}
+
+/* Small heading */
+.hero .eyebrow {
+  animation: fadeUp 0.7s ease-out 0.15s both;
+}
+
+/* Main name */
+.hero h1 {
+  animation: fadeUp 0.85s ease-out 0.3s both;
+}
+
+/* Introduction */
+.hero-intro {
+  animation: fadeUp 0.85s ease-out 0.5s both;
+}
+
+/* Buttons */
+.hero-actions {
+  animation: fadeUp 0.85s ease-out 0.7s both;
+}
+
+/* Your photograph */
+.hero .portrait {
+  animation: photoEntrance 1.1s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.35s both;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .hero .eyebrow,
+  .hero h1,
+  .hero-intro,
+  .hero-actions,
+  .hero .portrait {
+    animation: none !important;
+  }
+}
+
+
